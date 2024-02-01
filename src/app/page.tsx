@@ -3,26 +3,35 @@
 import { useState } from "react";
 
 export default function Home() {
-  const [theme, setTheme] = useState("light");
-  const [nextTheme, setNextTheme] = useState("Dark");
+  const THEME = "THEME";
+  const NEXT_THEME = "Dark";
+
+  const [theme, setTheme] = useState(localStorage.getItem(THEME) ?? "Light");
+  const [nextTheme, setNextTheme] = useState(
+    localStorage.getItem(NEXT_THEME) ?? "Dark"
+  );
 
   const changeTheme = () => {
     console.log(theme);
-    if (theme === "dark") {
-      setTheme("light");
+    if (theme === "Dark") {
+      setTheme("Light");
       setNextTheme("Dark");
+      localStorage.setItem(THEME, "Light");
+      localStorage.setItem(NEXT_THEME, "Dark");
     } else {
-      setTheme("dark");
+      setTheme("Dark");
       setNextTheme("Light");
+      localStorage.setItem(THEME, "Dark");
+      localStorage.setItem(NEXT_THEME, "Light");
     }
   };
 
   const getTextColor = () => {
-    return theme === "dark" ? "white" : "black";
+    return theme === "Dark" ? "white" : "black";
   };
 
   const getBackgroundColor = () => {
-    return theme === "dark" ? "black" : "white";
+    return theme === "Dark" ? "black" : "white";
   };
 
   return (
