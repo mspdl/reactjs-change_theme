@@ -10,11 +10,7 @@ export const ThemeSwitch = () => {
   return (
     <div
       onClick={handleThemeSwitch}
-      className={`fixed top-1 left-[30%] p-3 rounded-md text-center cursor-pointer ${
-        themeCtx?.theme === "dark"
-          ? "bg-white text-black"
-          : "bg-black text-white"
-      }`}
+      className="fixed top-1 left-[30%] p-3 rounded-md text-center cursor-pointer bg-black text-white dark:bg-white dark:text-black"
     >
       {`Change to ${themeCtx?.theme === "dark" ? "light" : "dark"} theme`}
     </div>

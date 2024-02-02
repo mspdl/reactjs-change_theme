@@ -26,6 +26,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     setIsMounted(true);
     typeof window !== "undefined";
+    theme === "dark"
+      ? document.documentElement.classList.add("dark")
+      : document.documentElement.classList.remove("dark");
+
     localStorage.setItem(THEME, theme);
   }, [theme]);
 
